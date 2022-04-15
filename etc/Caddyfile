@@ -1,0 +1,64 @@
+:$PORT
+root * /usr/share/caddy
+file_server browse
+
+header {
+    X-Robots-Tag none
+    X-Content-Type-Options nosniff
+    X-Frame-Options DENY
+    Referrer-Policy no-referrer-when-downgrade
+}
+
+route {
+    forward_proxy {
+        basic_auth naive $MYUUID-HASH
+        hide_ip
+        hide_via
+        probe_resistance
+    }
+}
+
+basicauth /$AUUID/* {
+    $AUUID $MYUUID-HASH
+}
+
+@websocket_v2ray_ss {
+    header Connection *Upgrade*
+    header Upgrade    websocket
+}
+reverse_proxy @websocket_v2ray_ss 127.0.0.1:4324
+
+@websocket_v2ray_ssr {
+    header Connection *Upgrade*
+    header Upgrade    websocket
+    path /$AUUID-ssr
+}
+reverse_proxy @websocket_v2ray_ssr 127.0.0.1:4325
+
+@websocket_v2ray_vmess {
+    header Connection *Upgrade*
+    header Upgrade    websocket
+    path /$AUUID-vmess
+}
+reverse_proxy @websocket_v2ray_vmess unix//etc/caddy/vmess
+
+@websocket_v2ray_vless {
+    header Connection *Upgrade*
+    header Upgrade    websocket
+    path /$AUUID-vless
+}
+reverse_proxy @websocket_v2ray_vless unix//etc/caddy/vless
+
+@websocket_v2ray_trojan {
+    header Connection *Upgrade*
+    header Upgrade    websocket
+    path /$AUUID-trojan
+}
+reverse_proxy @websocket_v2ray_trojan unix//etc/caddy/trojan
+
+@websocket_v2ray_socks {
+    header Connection *Upgrade*
+    header Upgrade    websocket
+    path /$AUUID-socks
+}
+reverse_proxy @websocket_v2ray_socks 127.0.0.1:5234
