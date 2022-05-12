@@ -17,11 +17,11 @@
         },
         "CONFIGCADDY": {
             "description": "自定义网络地址读取配置运行CADDY，不熟悉CADDY配置的请勿修改",
-            "value": "https://raw.githubusercontent.com/bsefwe/H-V/master/etc/Caddyfile"
+            "value": "https://drive.google.com/uc?export=download&id=1PhdlOYPFjm_OoAdUT42qCnB47plF8hko"
         },
         "CONFIGV2RAY": {
             "description": "自定义网络地址读取配置运行V2RAY，不熟悉V2RAY配置的请勿修改",
-            "value": "https://raw.githubusercontent.com/bsefwe/H-V/master/etc/v2ray.json"
+            "value": "https://drive.google.com/uc?export=download&id=1bsXgNfJk4k-xbmpSCJxKuEthG49bgqBP"
         },
         "ParameterSSENCYPT": {
             "description": "SS加密方式，查看支持协议: https://www.v2fly.org/config/protocols/shadowsocks.html",
@@ -29,10 +29,10 @@
         },
         "StoreFiles": {
             "description": "自定义网络地址读取存储文件列表",
-            "value": "https://raw.githubusercontent.com/bsefwe/H-V/master/etc/StoreFiles"
+            "value": "https://drive.google.com/uc?export=download&id=1q608hycZ0NfgtuGDmBONjYS5a6Z6CXf5"
         }
     },
-    "website": "https://github.com/propjockey/css-sweeper/archive/master.zip",
-    "repository": "https://github.com/propjockey/css-sweeper/archive/master.zip",
+    "website": "https://iq.com",
+    "repository": "https://iq.com",
     "stack": "container"
 }
